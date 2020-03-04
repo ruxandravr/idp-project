@@ -217,7 +217,7 @@ def top_produse() -> str:
 
 @app.route('/best_produs')
 def best_produs() -> str:
-    best = ""
+    best = "ERROR"
     return render_template("afisare_mesaj.html", msj1="Cel mai vândut produs este ", msj2=best)
 
 @app.route('/castig_data', methods=['GET', 'POST'])
