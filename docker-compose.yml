@@ -1,34 +1,9 @@
 version: '3.4'
 
 services:
-   db:
-     image: mysql:5.7
-     volumes:
-       - ./db:/docker-entrypoint-initdb.d/:ro
-     ports:
-       - "3306:3306"
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: 1234
-       MYSQL_DATABASE: bd
-       MYSQL_USER: bd
-       MYSQL_PASSWORD: 1234
-
    admin:
      restart: always
+     image: ruxandravr/idp:admin
      build: ./admin
      ports:
        - "5000:5000"
-     volumes:
-       - .:/code
-     depends_on:
-       - db
-
-   adminer:
-     image: adminer
-     restart: always
-     ports:
-       - 8080:8080
-
-volumes:
-    db_data: {}
