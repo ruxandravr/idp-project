@@ -204,6 +204,41 @@ def modificare_inventar_cantitate() -> str:
         return redirect('/')
     return render_template("modificare_inventar_cantitate.html")
 
+@app.route('/bilant_zilnic')
+def bilant_zilnic() -> str:
+    detalii = ""
+    return render_template("bilant_zilnic.html", detalii=detalii)
+
+
+@app.route('/top_produse')
+def top_produse() -> str:
+    detalii = ""
+    return render_template("top_produse.html", detalii=detalii)
+
+@app.route('/best_produs')
+def best_produs() -> str:
+    best = ""
+    return render_template("afisare_mesaj.html", msj1="Cel mai vândut produs este ", msj2=best)
+
+@app.route('/castig_data', methods=['GET', 'POST'])
+def castig_data() -> str:
+    if request.method == 'POST':
+        formDetails = request.form
+        data = formDetails['data']
+        castig = ""
+        return render_template("afisare_mesaj.html", msj1="Câștigul in această dată este ", msj2=castig)
+    return render_template("castig_data.html")
+
+@app.route('/castig_luna', methods=['GET', 'POST'])
+def castig_luna() -> str:
+    if request.method == 'POST':
+        formDetails = request.form
+        luna = formDetails['luna']
+        castig = ""
+        return render_template("afisare_mesaj.html", msj1="Câștigul in această lună este ", msj2=castig)
+    return render_template("castig_luna.html")
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
