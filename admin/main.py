@@ -212,7 +212,7 @@ def bilant_zilnic() -> str:
 
 @app.route('/top_produse')
 def top_produse() -> str:
-    detalii = ""
+    detalii = []
     return render_template("top_produse.html", detalii=detalii)
 
 @app.route('/best_produs')
