@@ -14,4 +14,4 @@ To access the website you have to type in the broser:
   - `localhost:5003` for the administrator panel
   
 ### Components
-![alt text](https://ibb.co/sFvVKw1)
+![alt text](https://pasteboard.co/J1Q1w2e.jpg)
