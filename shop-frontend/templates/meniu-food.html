@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Andromeda coffee</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script type=text/javascript> $(function() { $("#btnf1").click(function (event) { $.getJSON('/btnf1', { },
+  function(data) { }); return false; }); }); </script> 
+
+  <script type=text/javascript> $(function() { $("#btnf2").click(function (event) { $.getJSON('/btnf2', { },
+    function(data) { }); return false; }); }); </script> 
+
+  <script type=text/javascript> $(function() { $("#btnf3").click(function (event) { $.getJSON('/btnf3', { },
+    function(data) { }); return false; }); }); </script> 
+
+  <script type=text/javascript> $(function() { $("#btnf4").click(function (event) { $.getJSON('/btnf4', { },
+    function(data) { }); return false; }); }); </script> 
+
+  <script type=text/javascript> $(function() { $("#btnf5").click(function (event) { $.getJSON('/btnf5', { },
+    function(data) { }); return false; }); }); </script> 
+
+  <script type=text/javascript> $(function() { $("#btnf6").click(function (event) { $.getJSON('/btnf6', { },
+    function(data) { }); return false; }); }); </script> 
+
+  <script type=text/javascript> $(function() { $("#btnf7").click(function (event) { $.getJSON('/btnf7', { },
+    function(data) { }); return false; }); }); </script>
+
+  <script type=text/javascript> $(function() { $("#btnf8").click(function (event) { $.getJSON('/btnf8', { },
+    function(data) { }); return false; }); }); </script>
+
+  <script type=text/javascript> $(function() { $("#btnf9").click(function (event) { $.getJSON('/btnf9', { },
+    function(data) { }); return false; }); }); </script>
+
+  <script type=text/javascript> $(function() { $("#btnf10").click(function (event) { $.getJSON('/btnf10', { },
+    function(data) { }); return false; }); }); </script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+
+    .price {
+      color: grey;
+      font-size: 22px;
+    }
+
+    .card button {
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    .card button:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Andromeda coffee shop</h1>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('main') }}">Home</a></li>
+        <li><a href="{{ url_for('meniu') }}">Drinks menu</a></li>
+        <li class="active"><a href="{{ url_for('meniu_food') }}">Food menu</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('checkout') }}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/39c8d371efed45f18ba0d21f59c6229a.jpg?impolicy=1by1_wide_1242" style="width:100%">
+        <h3>{{food["m1"][0]}}</h3>
+        <p class="price">{{food["m1"][1]}} RON</p>
+        <p><button id="btnf1">Add to Cart</button></p>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/f7febd6b86084135b98a13fa95c72f51.jpg?impolicy=1by1_wide_1242" style="width:100%">
+        <h3>{{food["m2"][0]}}</h3>
+        <p class="price">{{food["m2"][1]}} RON</p>
+        <p><button id="btnf2">Add to Cart</button></p>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/b581ebb9ac0d4cacb2ec80b0a7402dd9.jpg?impolicy=1by1_wide_1242"style="width:100%">
+        <h3>{{food["m3"][0]}}</h3>
+        <p class="price">{{food["m3"][1]}} RON</p>
+        <p><button id="btnf3">Add to Cart</button></p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/300815e1cad148e4a3c105c785ae098b.jpg?impolicy=1by1_wide_1242" style="width:100%">
+        <h3>{{food["m4"][0]}}</h3>
+        <p class="price">{{food["m4"][1]}} RON</p>
+        <p><button id="btnf4">Add to Cart</button></p>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/e39e1d6044634535a027301d982c5842.jpg?impolicy=1by1_wide_1242" style="width:100%">
+        <h3>{{food["m5"][0]}}</h3>
+        <p class="price">{{food["m5"][1]}} RON</p>
+        <p><button id="btnf5">Add to Cart</button></p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/94a08a1ea84f465f86fdfe22c035598c.jpg?impolicy=1by1_wide_1242" style="width:100%">
+        <h3>{{food["m6"][0]}}</h3>
+        <p class="price">{{food["m6"][1]}} RON</p>
+        <p><button id="btnf6">Add to Cart</button></p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/7274a0da5453434aaa63b133edd3ce5c.jpg?impolicy=1by1_wide_1242" style="width:100%">
+        <h3>{{food["m7"][0]}}</h3>
+        <p class="price">{{food["m7"][1]}} RON</p>
+        <p><button id="btnf7">Add to Cart</button></p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/3d22f1a47ee5427a803fce0b5eea5375.jpg?impolicy=1by1_wide_1242" style="width:100%">
+        <h3>{{food["m8"][0]}}</h3>
+        <p class="price">{{food["m8"][1]}} RON</p>
+        <p><button id="btnf8">Add to Cart</button></p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/1525945a0a0342eaa028aa20053b982f.jpg?impolicy=1by1_wide_1242" style="width:100%">
+        <h3>{{food["m9"][0]}}</h3>
+        <p class="price">{{food["m9"][1]}} RON</p>
+        <p><button id="btnf9">Add to Cart</button></p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="https://globalassets.starbucks.com/assets/4256a71a589b4d8bb5d92f967e548522.jpg?impolicy=1by1_wide_1242"style="width:100%">
+        <h3>{{food["m10"][0]}}</h3>
+        <p class="price">{{food["m10"][1]}} RON</p>
+        <p><button id="btnf10">Add to Cart</button></p>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright</p>
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btnf btnf-danger">Sign Up</button>
+  </form>
+</footer>
+
+</body>
+</html>

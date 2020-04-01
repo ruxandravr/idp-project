@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Andromeda coffee</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Andromeda coffee shop</h1>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('main') }}">Home</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Add
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ url_for('add_card') }}">Add card</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Modify
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{{ url_for('modify_drink') }}">Modify drink</a></li>
+                <li><a href="{{ url_for('modify_food') }}">Modify food</a></li>
+                <li><a href="{{ url_for('modify_inventory') }}">Modify inventory</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Visualize
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="{{ url_for('visualize_tranzactions') }}">Visualize tranzactions</a></li>
+              <li><a href="{{ url_for('visualize_drinks') }}">Visualize drinks</a></li>
+              <li><a href="{{ url_for('visualize_food') }}">Visualize food</a></li>
+              <li><a href="{{ url_for('visualize_inventory') }}">Visualize inventory</a></li>
+              <li><a href="{{ url_for('visualize_cards') }}">Visualize cards</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container">
+    <table class="table">
+      <thead class="thead-dark">
+          <tr>
+              <th>Id</th>
+              <th>Dealer</th>
+              <th>Name</th>
+              <th>Quantity</th>
+            </tr>
+      </thead>
+      <tbody>
+          {% for d in row %}
+          <tr>
+              <td > {{d[0]}} </td>
+              <td > {{d[1]}}</td>
+              <td > {{d[2]}}</td>
+              <td > {{d[3]}}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright</p>  
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-danger">Sign Up</button>
+  </form>
+</footer>
+
+</body>
+</html>
