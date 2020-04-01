@@ -3,7 +3,6 @@ version: '3.4'
 services:
    admin-backend:
      image: ruxandravr/idp:admin-backend
-    #  restart: always
      build: ./admin-backend
      ports:
        - "5002:5002"
@@ -14,7 +13,6 @@ services:
 
    admin-frontend:
      image: ruxandravr/idp:admin-frontend
-    #  restart: always
      build: ./admin-frontend
      ports:
        - "5003:5003"
@@ -25,7 +23,6 @@ services:
 
    shop-backend:
      image: ruxandravr/idp:shop-backend
-    #  restart: always
      build: ./shop-backend
      ports:
        - "5000:5000"
@@ -36,7 +33,6 @@ services:
 
    shop-frontend:
      image: ruxandravr/idp:shop-frontend
-    #  restart: always
      build: ./shop-frontend
      ports:
        - "5001:5001"
@@ -50,7 +46,6 @@ services:
        - ./db:/docker-entrypoint-initdb.d/:ro
      ports:
        - "3306:3306"
-    #  restart: always
      environment:
        MYSQL_ROOT_PASSWORD: 1234
        MYSQL_DATABASE: bd
@@ -61,7 +56,6 @@ services:
 
    adminer:
      image: adminer
-    #  restart: always
      ports:
        - 8080:8080
      networks:
