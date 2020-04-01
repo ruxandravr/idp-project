@@ -3,55 +3,69 @@ version: '3.4'
 services:
    admin-backend:
      image: ruxandravr/idp:admin-backend
-     restart: always
+    #  restart: always
      build: ./admin-backend
      ports:
        - "5002:5002"
      depends_on:
        - db
+     networks:
+       - network
 
    admin-frontend:
      image: ruxandravr/idp:admin-frontend
-     restart: always
+    #  restart: always
      build: ./admin-frontend
      ports:
        - "5003:5003"
      depends_on:
        - admin-backend
+     networks:
+       - network
 
    shop-backend:
      image: ruxandravr/idp:shop-backend
-     restart: always
+    #  restart: always
      build: ./shop-backend
      ports:
        - "5000:5000"
      depends_on:
        - db
+     networks:
+       - network
 
    shop-frontend:
      image: ruxandravr/idp:shop-frontend
-     restart: always
+    #  restart: always
      build: ./shop-frontend
      ports:
        - "5001:5001"
      depends_on:
        - shop-backend
-
+     networks:
+       - network
    db:
      image: mysql:5.7
      volumes:
        - ./db:/docker-entrypoint-initdb.d/:ro
      ports:
        - "3306:3306"
-     restart: always
+    #  restart: always
      environment:
        MYSQL_ROOT_PASSWORD: 1234
        MYSQL_DATABASE: bd
        MYSQL_USER: bd
        MYSQL_PASSWORD: 1234
+     networks:
+       - network
 
    adminer:
      image: adminer
-     restart: always
+    #  restart: always
      ports:
        - 8080:8080
+     networks:
+       - network
+
+networks:
+    network:
