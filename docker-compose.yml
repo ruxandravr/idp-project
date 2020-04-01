@@ -1,13 +1,8 @@
 version: '3.4'
 
 services:
-  #  admin:
-  #    restart: always
-  #    image: ruxandravr/idp:admin-frontend
-  #    build: ./admin-frontend
-  #    ports:
-  #      - "5000:5000"
    admin-backend:
+     image: ruxandravr/idp:admin-backend
      restart: always
      build: ./admin-backend
      ports:
@@ -16,12 +11,16 @@ services:
        - db
 
    admin-frontend:
+     image: ruxandravr/idp:admin-frontend
      restart: always
      build: ./admin-frontend
      ports:
        - "5003:5003"
+     depends_on:
+       - admin-backend
 
    shop-backend:
+     image: ruxandravr/idp:shop-backend
      restart: always
      build: ./shop-backend
      ports:
@@ -30,10 +29,13 @@ services:
        - db
 
    shop-frontend:
+     image: ruxandravr/idp:shop-frontend
      restart: always
      build: ./shop-frontend
      ports:
        - "5001:5001"
+     depends_on:
+       - shop-backend
 
    db:
      image: mysql:5.7
