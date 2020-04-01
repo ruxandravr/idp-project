@@ -6,7 +6,6 @@ WORKDIR /admin-frontend
 
 COPY requirements.txt /admin-frontend
 COPY templates /admin-frontend
-COPY static /admin-frontend
 RUN pip install -r requirements.txt
 
 COPY main.py /admin-frontend
