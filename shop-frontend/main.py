@@ -402,5 +402,4 @@ def buy():
     return render_template("checkout.html", num=0, products=products, total=0)
 
 if __name__ == '__main__':
-    app.debug = True
     app.run(host='0.0.0.0', port=5001)

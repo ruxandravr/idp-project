@@ -299,5 +299,4 @@ def modify_inventory(id, nume, furnizor, cantitate) -> str:
     return "yes"
 
 if __name__ == '__main__':
-    app.debug = True
     app.run(host='0.0.0.0', port=5002)
